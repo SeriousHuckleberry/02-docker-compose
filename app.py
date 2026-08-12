@@ -1,17 +1,36 @@
 from flask import Flask
+import psycopg
 
-# Create the Flask application
 app = Flask(__name__)
 
-# Home route
+
 @app.route("/")
 def home():
     return """
     <h1>🚀 DevOps Portfolio Project</h1>
     <p>Hello from Flask!</p>
-    <p>This application will soon be containerized using Docker.</p>
+    <p>Running with Docker Compose!</p>
     """
 
-# Run the application
+
+@app.route("/db")
+def database():
+    try:
+        connection = psycopg.connect(
+            host="postgres",
+            port=5432,
+            dbname="flaskdb",
+            user="postgres",
+            password="postgres"
+        )
+
+        connection.close()
+
+        return "PostgreSQL connection successful!"
+
+    except Exception as e:
+        return f"Database connection failed: {e}", 500
+
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000)
