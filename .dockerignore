@@ -1,0 +1,21 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Documentation
+README.md
+
+# Screenshots
+screenshots/
+
+# VS Code
+.vscode/
+
+#docker
+dockerfile
+.dockerignore
