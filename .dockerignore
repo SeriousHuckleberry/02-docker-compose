@@ -17,5 +17,4 @@ screenshots/
 .vscode/
 
 #docker
-dockerfile
 .dockerignore
