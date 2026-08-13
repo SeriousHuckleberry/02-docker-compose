@@ -1,5 +1,6 @@
 from flask import Flask
 import psycopg
+import os
 
 app = Flask(__name__)
 
@@ -19,9 +20,9 @@ def database():
         connection = psycopg.connect(
             host="postgres",
             port=5432,
-            dbname="flaskdb",
-            user="postgres",
-            password="postgres"
+            dbname=os.getenv("POSTGRES_DB"),
+            user=os.getenv("POSTGRES_USER"),
+            password=os.getenv("POSTGRES_PASSWORD")
         )
 
         connection.close()
