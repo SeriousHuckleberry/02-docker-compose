@@ -581,10 +581,10 @@ docker compose down
 - [x] `.env` files
 - [x] Protecting `.env` from Git
 - [x] Basic Docker Compose commands
+- [x] Test PostgreSQL data persistence
 
 ## Still To Learn
 
-- [x] Test PostgreSQL data persistence
 - [ ] Improve the Flask application
 - [ ] Add database operations
 - [ ] Improve security
