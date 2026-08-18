@@ -24,9 +24,14 @@ def database():
             password=os.getenv("POSTGRES_PASSWORD")
         )
 
+        cursor = connection.cursor()
+        cursor.execute("SELECT version();")
+        result = cursor.fetchone()
+
+        cursor.close()
         connection.close()
 
-        return "PostgreSQL connection successful!"
+        return f"PostgreSQL connection successful!<br>{result[0]}"
 
     except Exception as e:
         return f"Database connection failed: {e}", 500
